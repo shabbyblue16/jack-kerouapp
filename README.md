@@ -1,2 +1,0 @@
-# jack-kerouapp
-Ride share
