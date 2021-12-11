@@ -1,10 +1,11 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-import User from '../models/user.js';
+import Rider from '../models/user.js';
+// import Driver from '../models/user.js';
 
 const signup = (req, res) => {
-  User.findOne({
+  Rider.findOne({
     where: {
       email: req.body.email,
     }})
@@ -16,9 +17,10 @@ const signup = (req, res) => {
           if (err) {
             res.status(500).json({ message: 'could not hash password' });
           } else if (pwHash) {
-            return User.create(({
+            return Rider.create(({
               email: req.body.email,
               name: req.body.name,
+              phone: req.body.phone,
               password: pwHash,
             }))
               .then(() => {
@@ -42,7 +44,8 @@ const signup = (req, res) => {
 };
 
 const login = (req, res) => {
-  User.findOne({ where: {
+  console.log(req.body);
+  Rider.findOne({ where: {
     email: req.body.email,
   }})
     .then(user => {

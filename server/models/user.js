@@ -25,7 +25,7 @@ const Rider = sequelize.define('riders', {
     allowNull: false,
   },
   location: {
-    type: Sequelize.POINT,
+    type: Sequelize.GEOMETRY,
   }
   // createdAt: {
   //   field: 'created_at',
@@ -62,7 +62,7 @@ const Driver = sequelize.define('drivers', {
     allowNull: false,
   },
   location: {
-    type: Sequelize.POINT,
+    type: Sequelize.GEOMETRY,
   },
   car: {
     type: Sequelize.STRING,
@@ -74,6 +74,9 @@ const Driver = sequelize.define('drivers', {
   },
   rating: {
     type: Sequelize.DECIMAL,
+  },
+  available: {
+    type: Sequelize.BOOLEAN,
   }
   // createdAt: {
   //   field: 'created_at',
@@ -87,4 +90,4 @@ const Driver = sequelize.define('drivers', {
   // },
 });
 
-export default { Rider, Driver };
+export default Rider;
