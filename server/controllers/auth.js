@@ -44,7 +44,6 @@ const signup = (req, res) => {
 };
 
 const login = (req, res) => {
-  console.log(req.body);
   Rider.findOne({ where: {
     email: req.body.email,
   }})
